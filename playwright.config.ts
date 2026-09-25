@@ -22,9 +22,16 @@ export default defineConfig({
       use: { ...devices['Pixel 7'], defaultBrowserType: 'chromium', channel: 'chrome' },
     },
   ],
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://127.0.0.1:5177',
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer: [
+    {
+      command: 'npm run dev',
+      url: 'http://127.0.0.1:5177',
+      reuseExistingServer: !process.env.CI,
+    },
+    {
+      command: 'npm run build && npm run preview -- --port 4177 --base /emberfall/',
+      url: 'http://127.0.0.1:4177/emberfall/',
+      reuseExistingServer: false,
+    },
+  ],
 });

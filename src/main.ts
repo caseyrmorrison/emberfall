@@ -54,8 +54,12 @@ let cameraFraction = 0.5;
 const keys = new Set<string>();
 const audio = new AudioEngine();
 const app = document.querySelector<HTMLDivElement>('#app')!;
-const art = `${import.meta.env.BASE_URL}art/emberfall-cinematic.png`;
-const endingArt = `${import.meta.env.BASE_URL}art/emberfall-dawn.png`;
+// CSS custom-property URLs resolve against the stylesheet, so use document-based
+// absolute URLs for shared image references (including GitHub Pages subpaths).
+const art = new URL(`${import.meta.env.BASE_URL}art/emberfall-cinematic.png`, document.baseURI)
+  .href;
+const endingArt = new URL(`${import.meta.env.BASE_URL}art/emberfall-dawn.png`, document.baseURI)
+  .href;
 
 app.innerHTML = `
   <header class="topbar">

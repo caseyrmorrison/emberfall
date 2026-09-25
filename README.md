@@ -24,7 +24,7 @@ Strike restores focus. Fire and steel weaknesses build stagger, which interrupts
 - Local autosave with validated JSON import/export. Reduced-motion settings, volume controls, keyboard-accessible menus, and mobile controls.
 - Original synthesized ambient music, combat music, and sound effects; locally bundled fonts and artwork.
 
-The anime sequences are illustrated cinematics with animated camera movement and dialogue, not full-motion animation or voice acting. This is a small single-player game, with three handcrafted encounters areas sharing a world layout and distinct palettes, encounters, and progression.
+The anime sequences are illustrated cinematics with animated camera movement and dialogue, not full-motion animation or voice acting. This is a small single-player game, with three compact regions sharing a world layout and distinct palettes, encounters, and progression.
 
 ## Develop
 
@@ -51,7 +51,7 @@ npm run test:e2e
 npm run format:check
 ```
 
-`npm run check` runs the production build, unit tests, and desktop/mobile browser tests. The logic suite checks tactical balance, a three-boss campaign, grinding, rewards, upgrades, path reachability, and save sanitization. Browser tests cover real keyboard combat, menus, cinematics, file import/export, persistence, responsive layout, and the ending.
+`npm run check` runs the production build, unit tests, and desktop/mobile browser tests. The logic suite checks tactical balance, a three-boss campaign, grinding, rewards, upgrades, path reachability, and save sanitization. Browser tests cover real keyboard combat, menus, cinematics, file import/export, persistence, responsive layout, production asset loading under the Pages subpath, and the ending.
 
 ## Architecture
 
