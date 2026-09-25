@@ -87,9 +87,13 @@ test('keyboard exploration initiates combat, rewards victory, and saves it', asy
     path: `test-results/${testInfo.project.name}-battle.png`,
     fullPage: true,
   });
-  await page.locator('[data-combat="ember"]').click();
-  await expect(page.locator('[data-combat="ember"]')).toBeEnabled();
-  await page.locator('[data-combat="ember"]').click();
+  const victory = page.getByRole('heading', { name: 'Victory', exact: true });
+  // A critical Ember Arc can win in one hit; normal rolls take two.
+  for (let turn = 0; turn < 3; turn++) {
+    if (await victory.isVisible()) break;
+    await page.locator('[data-combat="ember"]').click();
+    await expect(page.locator('[data-combat="ember"]:enabled').or(victory)).toBeVisible();
+  }
   await expect(page.getByRole('heading', { name: 'Victory', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Onward', exact: true }).click();
   await expect(page.locator('#gold')).toContainText('48');
