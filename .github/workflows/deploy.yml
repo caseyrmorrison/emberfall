@@ -1,4 +1,4 @@
-name: Test and deploy Emberfall
+name: Test and deploy Emberfall games
 
 on:
   push:
@@ -23,12 +23,24 @@ jobs:
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            emberfall-echoes/package-lock.json
       - run: npm ci
+      - run: npm ci
+        working-directory: emberfall-echoes
       - run: npm run format:check
       - run: npm run build
       - run: npm test
       - run: npx playwright install --with-deps chrome
       - run: npm run test:e2e
+      - name: Build and test Echoes of the Moon
+        run: npm run check
+        working-directory: emberfall-echoes
+      - name: Include the illustrated game
+        run: |
+          mkdir -p dist/echoes
+          cp -R emberfall-echoes/dist/. dist/echoes/
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         if: github.event_name != 'pull_request'
         with:

@@ -4,6 +4,8 @@ A complete, compact pixel-art browser RPG about carrying a small light through a
 
 **[Play Emberfall](https://caseyrmorrison.github.io/emberfall/)**
 
+For the separate, non-pixel action RPG based on the anime artwork, **[play Echoes of the Moon](https://caseyrmorrison.github.io/emberfall/echoes/)**. Its independent project is in [emberfall-echoes/](emberfall-echoes/README.md), with separate save data.
+
 ## Play
 
 - **Explore:** WASD / arrow keys, or click a destination. Hold Shift to sprint. Touch controls appear on mobile.
